@@ -7,11 +7,23 @@ class Spree::Admin::MesController < Spree::Admin::ResourceController
   end
 
   def create
-    redirect_to admin_mes_url
+    @me = Spree::Me.new(me_params)
+    if @me.save
+      flash[:success] = flash_message_for(@me, :successfully_created)
+      redirect_to admin_mes_url
+    else
+      redirect_to admin_mes_url
+    end
   end
 
   def update
-    redirect_to admin_mes_url
+    @me = Spree::Me.find(params[:id])
+    if @me.update(me_params)
+      flash[:success] = flash_message_for(@me, :successfully_created)
+      redirect_to admin_mes_url
+    else
+      redirect_to admin_mes_url
+    end
   end
 
   def mobility
