@@ -1,0 +1,5 @@
+pl:
+  spree:
+    editing_bio: Edycja Biografii 
+    fullname: Imię i Nazwisko
+    address_line: Adres
